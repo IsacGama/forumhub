@@ -1,141 +1,67 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForumHub - README</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        h1, h2 {
-            color: #007bff;
-        }
-        h3 {
-            margin-top: 30px;
-            color: #444;
-        }
-        pre {
-            background-color: #2e2e2e;
-            color: #fff;
-            padding: 10px;
-            border-radius: 5px;
-            overflow-x: auto;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        .section {
-            margin-bottom: 20px;
-        }
-        .section p {
-            font-size: 1.1em;
-        }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-        .btn {
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-        }
-        .btn:hover {
-            background-color: #0056b3;
-        }
-        ul {
-            list-style-type: square;
-        }
-    </style>
-</head>
-<body>
+# ForumHub
 
-<div class="container">
-    <div class="header">
-        <h1>ForumHub</h1>
-        <p>Uma aplicação de fórum desenvolvida com <strong>Java 21</strong> e Spring Boot</p>
-        <a href="https://github.com/seu-usuario/forumhub" class="btn">Acessar Repositório no GitHub</a>
-    </div>
+ForumHub é uma aplicação de fórum desenvolvida utilizando **Java 21** e **Spring Boot**. Ela oferece funcionalidades para o gerenciamento de postagens, autenticação com JWT, e segurança usando Spring Security.
 
-    <div class="section">
-        <h2>Tecnologias</h2>
-        <ul>
-            <li><strong>Java 21</strong></li>
-            <li><strong>Spring Boot</strong> (com Spring Security)</li>
-            <li><strong>JWT</strong> (JSON Web Token)</li>
-            <li><strong>MySQL</strong> (Banco de dados)</li>
-            <li><strong>Spring Data JPA</strong></li>
-            <li><strong>Spring Web</strong></li>
-        </ul>
-    </div>
+[**Acessar Repositório no GitHub**](https://github.com/IsacGama/forumhub)
 
-    <div class="section">
-        <h2>Funcionalidades</h2>
-        <p>ForumHub oferece as seguintes funcionalidades:</p>
-        <ul>
-            <li><strong>Autenticação:</strong> Login via usuário e senha, gerando um token JWT para autenticação em endpoints protegidos.</li>
-            <li><strong>Postagens:</strong> Criação, listagem, atualização e exclusão de postagens com controle de acesso.</li>
-            <li><strong>Segurança:</strong> Utiliza JWT para autenticação e Spring Security para proteger os endpoints.</li>
-        </ul>
-    </div>
+## Tecnologias
 
-    <div class="section">
-        <h2>Endpoints</h2>
-        
-        <h3>Autenticação</h3>
-        <p><strong>POST /login</strong>: Efetuar login e obter o token JWT.</p>
-        <pre>
+- **Java 21**
+- **Spring Boot** (com Spring Security)
+- **JWT** (JSON Web Token)
+- **MySQL** (Banco de dados)
+- **Spring Data JPA**
+- **Spring Web**
+
+## Funcionalidades
+
+ForumHub oferece as seguintes funcionalidades:
+
+- **Autenticação**: Login via usuário e senha, gerando um token JWT para autenticação em endpoints protegidos.
+- **Postagens**: Criação, listagem, atualização e exclusão de postagens com controle de acesso.
+- **Segurança**: Utiliza JWT para autenticação e Spring Security para proteger os endpoints.
+
+## Endpoints
+
+### Autenticação
+
+#### `POST /login`
+Efetua login e retorna o token JWT.
+
+**Requisição:**
+
+```json
 {
   "login": "usuario@example.com",
   "senha": "senha123"
 }
-        </pre>
-        <p><strong>Resposta:</strong></p>
-        <pre>
+```
+Resposta:
+```json
 {
   "token": "jwt_token_aqui"
 }
-        </pre>
+```
+### Postagens
+- **POST /topicos**: Criar uma nova postagem.
+- **GET /topicos**: Listar postagens com paginação.
+- **GET /topicos/{id}**: Detalhar uma postagem específica.
+- **PUT /topicos/{id}**: Atualizar uma postagem existente (somente o autor pode editar).
+- **DELETE /topicos/{id}**: Excluir uma postagem (somente o autor pode excluir).
 
-        <h3>Postagens</h3>
-        <ul>
-            <li><strong>POST /topicos</strong>: Criar uma nova postagem.</li>
-            <li><strong>GET /topicos</strong>: Listar postagens com paginação.</li>
-            <li><strong>GET /topicos/{id}</strong>: Detalhar uma postagem específica.</li>
-            <li><strong>PUT /topicos/{id}</strong>: Atualizar uma postagem existente (somente o autor pode editar).</li>
-            <li><strong>DELETE /topicos/{id}</strong>: Excluir uma postagem (somente o autor pode excluir).</li>
-        </ul>
-    </div>
+### Como rodar o projeto
+- Clone este repositório.
 
-    <div class="section">
-        <h2>Como rodar o projeto</h2>
-        <ol>
-            <li>Clone este repositório.</li>
-            <li>Configure o banco de dados MySQL e a URL do banco em <code>application.properties</code>.</li>
-            <li>Execute o comando para rodar o projeto:</li>
-        </ol>
-        <pre>./mvnw spring-boot:run</pre>
-        <p>A aplicação estará disponível em <strong>http://localhost:8080</strong>.</p>
-    </div>
+- Configure o banco de dados MySQL e a URL do banco em application.properties.
 
-    <div class="section">
-        <h2>Configuração de Banco de Dados</h2>
-        <pre>
+- Execute o comando para rodar o projeto:
+
+```bash
+./mvnw spring-boot:run
+```
+#### A aplicação estará disponível em http://localhost:8080.
+#### Configuração de Banco de Dados
+```properties
 spring.datasource.url=${URL_MYSQL_FORUMHUB}
 spring.datasource.username=${USER_MYSQL_FORUMHUB}
 spring.datasource.password=${PASS_MYSQL_FORUMHUB}
@@ -146,14 +72,5 @@ spring.jpa.properties.hibernate.format_sql=true
 server.error.include-stacktrace=always
 
 api.security.token.secret=${JWT_SECRET:12345678}
-        </pre>
-    </div>
-
-    <div class="section">
-        <h2>Contribuições</h2>
-        <p>Se você deseja contribuir com o projeto, sinta-se à vontade para enviar um pull request. Qualquer contribuição será bem-vinda!</p>
-    </div>
-</div>
-
-</body>
-</html>
+```
+Desenvolvido por Isac Gama.
